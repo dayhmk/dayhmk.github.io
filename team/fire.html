@@ -1,0 +1,142 @@
+<!doctype html>
+
+<html>
+  
+  <head>
+    <title>Fire Homework</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="../src/jquery.rss.js"></script>
+    <script src="../src/fire_read_utils.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #eee;
+      }
+      .container {
+        max-width: 530px;
+        padding: 15px;
+        margin: 0 auto;
+      }
+      .container {
+        margin-bottom: 10px;
+      }
+      .container {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .container:focus {
+        z-index: 2;
+      }
+    </style>
+    <script>
+        doMillosLearningCenterFor("english");
+        doMillosLearningCenterFor("science");
+        doMillosLearningCenterFor("math");
+        doHistory();
+        doSpanish();
+    </script>
+  </head>
+  
+  <body>
+    <div class="container">
+      <h3 class="page-header">Fire Homework</h3>
+      <div class="btn-group">
+          <a href="/index.html" class="btn btn-primary">&lt; Home</a>
+          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Quicklinks</a>
+          <ul class="dropdown-menu">
+              <li><a href="//www.newton.k12.ma.us/day" target="_blank">Day Website</a></li>
+              <li><a href="//drive.google.com/a/newton.k12.ma.us" target="_blank">Google Docs</a></li>
+              <li><a href="//schoology.newton.k12.ma.us/login/ldap?&school=105120621" target="_blank">Schoology</a></li>
+              <li><a href="//app.middleburyinteractive.com" target="_blank">Middlebury Interactive</a></li>
+          </ul>
+      </div><br><br>
+      <div class="row">
+          <div class="col-sm-6">
+              <div class="panel panel-danger">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">English</h3>
+                  </div>
+                  <div class="panel-body" id="english-feed">
+                      <div class="progress progress-striped active" id="english-progress">
+                          <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      Source: <a href="http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395">Millos Learning Center</a>
+                  </div>
+              </div>
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Math</h3>
+                  </div>
+                  <div class="panel-body">
+                      <div class="progress progress-striped active" id="math-progress">
+                          <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                      <div id="math-feed">
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      Source: <a href="http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395">Millos Learning Center</a>
+                  </div>
+              </div>
+              <div class="panel panel-info">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Spanish</h3>
+                  </div>
+                  <div class="panel-body">
+                      <div class="progress progress-striped active" id="spanish-progress">
+                          <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                      <div id="spanish-homework">
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      Source: <a href="http://www2.newton.k12.ma.us/~courtney_fournier/?OpenItemURL=S08BD3AB2">Teacher Website</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-6">
+              <div class="panel panel-warning">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Science</h3>
+                  </div>
+                  <div class="panel-body" id="science-feed">
+                      <div class="progress progress-striped active" id="science-progress">
+                          <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      Source: <a href="http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395">Millos Learning Center</a>
+                  </div>
+              </div>
+              <div class="panel panel-success">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">History</h3>
+                  </div>
+                  <div class="panel-body" id="history-feed">
+                      <div class="progress progress-striped active" id="history-progress">
+                          <div class="progress-bar" style="width: 100%"></div>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                      Source: <a href="//fireteamhistory.blogspot.com/">Teacher Website</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- /container -->
+  </body>
+
+</html>
