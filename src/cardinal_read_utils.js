@@ -29,11 +29,11 @@ function doZappdragonsFor(subject){
               for(var i = 0; i<strings.length-1; i++){
                 string = strings[i]+"</p>";
               }
+              $("#"+subject+"-progress").remove();
               return string.trim();
             }
           }
         }).show();
-        $("#"+subject+"-progress").remove();
       })
 }
 
@@ -84,7 +84,7 @@ function doSpanish(){
                 if(strings.length > 1){
                     date = strings[1];
                 }else{
-                    //ERROR
+                    throw "Error parsing Spanish";
                     return;
                 }
                 date = date.split("</td>");
@@ -105,7 +105,7 @@ function doSpanish(){
                 if(strings.length > date.getDay()+1){
                     hmk = strings[date.getDay()+1];
                 }else{
-                    //ERROR
+                    throw "Error parsing Spanish";
                     return;
                 }
                 hmk = hmk.split("</td>");
