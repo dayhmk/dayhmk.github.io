@@ -30,7 +30,7 @@ function doZappdragonsFor(subject){
                 string = strings[i]+"</p>";
               }
               $("#"+subject+"-progress").remove();
-              return string.trim();
+              return editText(string.trim());
             }
           }
         }).show();
@@ -52,7 +52,7 @@ function doMath(){
         $("#math-homework").html(text);
               
         text = document.getElementById("math-homework").textContent;
-        document.getElementById("math-homework").innerHTML = text;
+        document.getElementById("math-homework").innerHTML = editText(text);
         
     });
 }
@@ -126,7 +126,7 @@ function doSpanish(){
               }
               
               text = document.getElementById("math-homework").textContent;
-              document.getElementById("math-homework").innerHTML = text;
+              document.getElementById("math-homework").innerHTML = editText(text);
               
     });
 }

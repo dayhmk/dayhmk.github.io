@@ -7,7 +7,7 @@ function doHistory(){
           tokens: {
             bodyEdit: function(entry, tokens){
               $("#history-progress").remove();
-              return entry.content.trim();
+              return editText(entry.content.trim());
             }
           }
         }).show();
@@ -44,7 +44,7 @@ function doMillosLearningCenterFor(subject){
         while(text.indexOf("<br>") == 0){
             text = text.substr(4);
         }
-        document.getElementById(subject+"-feed").innerHTML = text.trim();
+        document.getElementById(subject+"-feed").innerHTML = editText(text.trim());
         
     });
 }
@@ -66,7 +66,7 @@ function doSpanish(){
               $("#spanish-progress").remove();
               
               text = document.getElementById("spanish-homework").textContent;
-              document.getElementById("spanish-homework").innerHTML = text.trim();
+              document.getElementById("spanish-homework").innerHTML = editText(text.trim());
               
     });
 }
