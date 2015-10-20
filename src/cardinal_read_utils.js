@@ -97,11 +97,11 @@ function doSpanish(){
                 date = d;
               }
               var thisDate = new Date();
-              if(!(date.getDay() == 0 || date.getDay() == 6)){
+              if(!(thisDate.getDay() == 0 || thisDate.getDay() == 6)){
                 strings = trList[1].split(/<td[^>]*>/);
                 var hmk;
-                if(strings.length > date.getDay()+2){
-                    hmk = strings[date.getDay()+2];
+                if(strings.length > thisDate.getDay()+2){
+                    hmk = strings[thisDate.getDay()+2];
                 }else{
                     throw "Error parsing Spanish";
                     return;
