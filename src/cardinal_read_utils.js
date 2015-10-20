@@ -1,5 +1,3 @@
-var dateKeywords = ["january", "febuary", "march","april","may","june","july","august","september","october"];
-
 function doZappdragonsFor(subject){
   jQuery(function($) {
         $("#"+subject+"-feed").rss("http://zappdragons.wordpress.com/feed/", {
@@ -125,8 +123,8 @@ function doSpanish(){
                 $("#spanish-homework").html(hmk.toString());
               }
               
-              text = document.getElementById("math-homework").textContent;
-              document.getElementById("math-homework").innerHTML = editText(text);
+              text = document.getElementById("spanish-homework").textContent;
+              document.getElementById("spanish-homework").innerHTML = editText(text);
               
     });
 }
