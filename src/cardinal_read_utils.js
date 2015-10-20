@@ -35,8 +35,11 @@ function doZappdragonsFor(subject){
       })
 }
 
-function doMath(){
-    $.getJSON('http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~sarah_nitsche/?OpenItemURL=S04B9F0E6') + '&callback=?', function(input){
+function doMath(times){
+    $.ajax({
+           dataType: "json",
+           url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~sarah_nitsche/?OpenItemURL=S04B9F0E6') + '&callback=?',
+           success:function(input){
         var text = input.contents;
         var strings = text.split(new RegExp("(january|february|march|april|may|june|july|august|september|october|november|december)","i"));
         if(strings.length > 2)
@@ -52,11 +55,21 @@ function doMath(){
         text = document.getElementById("math-homework").textContent;
         document.getElementById("math-homework").innerHTML = editText(text);
         
-    });
+    },
+    error:function(jqXHR,textStatus,errorThrown){
+           if(textStatus != null && textStatus == "timeout" && times < 3){
+                doMath(times+1);
+                return;
+           }
+           error(jqXHR,textStatus,errorThrown);
+    }});
 }
 
-function doSpanish(){
-    $.getJSON('http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~cassandra_spittel/?OpenItemURL=S0B3E6873') + '&callback=?', function(input){
+function doSpanish(times){
+    $.ajax({
+           dataType: "json",
+           url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~cassandra_spittel/?OpenItemURL=S0B3E6873') + '&callback=?',
+           success:function(input){
               var text = input.contents;
               
               var strings = text.split('<div align="center">');
@@ -126,7 +139,14 @@ function doSpanish(){
               text = document.getElementById("spanish-homework").textContent;
               document.getElementById("spanish-homework").innerHTML = editText(text);
               
-    });
+    },
+    error:function(jqXHR,textStatus,errorThrown){
+           if(textStatus != null && textStatus == "timeout" && times < 3){
+                doSpanish(times+1);
+                return;
+           }
+           error(jqXHR,textStatus,errorThrown);
+    }});
 }
 
 function getHTMLText(html){

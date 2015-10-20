@@ -14,8 +14,11 @@ function doHistory(){
       })
 }
 
-function doMillosLearningCenterFor(subject){
-    $.getJSON('http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395') + '&callback=?', function(input){
+function doMillosLearningCenterFor(subject,times){
+    $.ajax({
+           dataType: "json",
+           url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395') + '&callback=?',
+           success:function(input){
         var text = input.contents;
         var strings = text.split(new RegExp("(january|february|march|april|may|june|july|august|september|october|november|december)","i"));
         if(strings.length > 2)
@@ -46,11 +49,20 @@ function doMillosLearningCenterFor(subject){
         }
         document.getElementById(subject+"-feed").innerHTML = editText(text.trim());
         
-    });
+    },error:function(jqXHR,textStatus,errorThrown){
+        if(textStatus != null && textStatus == "timeout" && times < 3){
+           doMillosLearningCenterFor(subject,times+1);
+           return;
+        }
+        error(jqXHR,textStatus,errorThrown);
+    }});
 }
 
-function doSpanish(){
-    $.getJSON('http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~courtney_fournier/?OpenItemURL=S08BD3AB2') + '&callback=?', function(input){
+function doSpanish(times){
+    $.ajax({
+           dataType: "json",
+          url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~courtney_fournier/?OpenItemURL=S08BD3AB2') + '&callback=?',
+           success:function(input){
               var text = input.contents;
               var strings = text.split(new RegExp("(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)","i"));
               if(strings.length > 1)
@@ -68,5 +80,12 @@ function doSpanish(){
               text = document.getElementById("spanish-homework").textContent;
               document.getElementById("spanish-homework").innerHTML = editText(text.trim());
               
-    });
+        },error:function(jqXHR,textStatus,errorThrown){
+           alert(times);
+            if(textStatus != null && textStatus == "timeout" && times < 3){
+                doSpanish(times+1);
+                return;
+            }
+            error(jqXHR,textStatus,errorThrown);
+        }});
 }

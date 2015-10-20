@@ -44,7 +44,7 @@
       doZappdragonsFor("english");
       doZappdragonsFor("science");
       doZappdragonsFor("history");
-      doSpanish();
+      doSpanish(0);
       window.onerror = function (errorMsg, url, lineNumber) {
           var error = '<br><div class="alert alert-dismissible alert-danger">';
           error += '<button type="button" class="close" data-dismiss="alert">×</button>';
@@ -93,7 +93,7 @@
                   <div id="math-homework">
                   </div>
                   <script>
-                      doMath();
+                      doMath(0);
                       </script>
               </div>
               <div class="panel-footer">
