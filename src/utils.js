@@ -6,14 +6,18 @@ function editText(text){
     return out;
 }
 function error(jqXHR,textStatus,errorThrown){
-    var emailBody = "This is a application-generated email. DO NOT EDIT!!! Just send.\n";
-    if(textStatus != null)
-        emailBody += "Text Status:"+textStatus+"\n\n";
-    if(errorThrown != null)
-        emailBody += "HTTP Error:"+errorThrown;
     var error = '<br><div class="alert alert-dismissible alert-danger">';
     error += '<button type="button" class="close" data-dismiss="alert">×</button>';
     error += '<strong>Uh-oh</strong> An error occured. ';
-    error += '<a href="mailto:dayhomework@gmail.com?subject=ERROR_REPORT&body='+encodeURIComponent(emailBody)+'">Send a Report</a></div>'
+    if(textStatus != null && (textStatus.toLowerCase() == "error" || textStatus.toLowerCase() == "timeout")){
+        error += 'Did you reload the webpage, or are you using a slow internet connection?</div>';
+    }else{
+        var emailBody = "This is a application-generated email. DO NOT EDIT!!! Just send.\n";
+        if(textStatus != null)
+            emailBody += "Text Status:"+textStatus+"\n\n";
+        if(errorThrown != null)
+            emailBody += "HTTP Error:"+errorThrown;
+        error += '<a href="mailto:dayhomework@gmail.com?subject=ERROR_REPORT&body='+encodeURIComponent(emailBody)+'">Send a Report</a></div>';
+    }
     $("#msg").append(error);
 }
