@@ -81,7 +81,6 @@ function doSpanish(times){
               document.getElementById("spanish-homework").innerHTML = editText(text.trim());
               
         },error:function(jqXHR,textStatus,errorThrown){
-           alert(times);
             if(textStatus != null && textStatus == "timeout" && times < 3){
                 doSpanish(times+1);
                 return;
