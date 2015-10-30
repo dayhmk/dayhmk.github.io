@@ -15,10 +15,15 @@ function doZappdragonsFor(subject){
               }else{
                 string = strings[0];
               }
+              strings = string.split(new RegExp("(english|history|math|science)", "i"));
+              string = strings[0];
               
               strings = string.split(":");
               if(strings.length > 1){
-                string = strings[1];
+              	string = "";
+                for(var i = 1; i<strings.length; i++){
+                	string = string+strings[i];
+                }
               }else{
                 string = strings[0];
               }
@@ -108,7 +113,7 @@ function doSpanish(times){
                 date = d;
               }
               var thisDate = new Date();
-              if(!(thisDate.getDay() == 0 || thisDate.getDay() == 6)){
+              if(!(thisDate.getDay() == 0 || thisDate.getDay() == 6 || thisDate.getDay() == 5)){
                 strings = trList[1].split(/<td[^>]*>/);
                 var hmk;
                 if(strings.length > thisDate.getDay()+2){
