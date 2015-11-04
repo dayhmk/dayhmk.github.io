@@ -42,10 +42,9 @@ function doZappdragonsFor(subject){
 
 function doMath(times){
     $.ajax({
-           dataType: "json",
-           url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~sarah_nitsche/?OpenItemURL=S04B9F0E6') + '&callback=?',
+           url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~sarah_nitsche/?OpenItemURL=S04B9F0E6',
            success:function(input){
-        var text = input.contents;
+        var text = input;
         var strings = text.split(new RegExp("(january|february|march|april|may|june|july|august|september|october|november|december)","i"));
         if(strings.length > 2)
             text = strings[2];
@@ -72,10 +71,9 @@ function doMath(times){
 
 function doSpanish(times){
     $.ajax({
-           dataType: "json",
-           url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~cassandra_spittel/?OpenItemURL=S0B3E6873') + '&callback=?',
+           url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~cassandra_spittel/?OpenItemURL=S0B3E6873',
            success:function(input){
-              var text = input.contents;
+              var text = input;
               
               var strings = text.split('<div align="center">');
               if(strings.length > 1)

@@ -16,10 +16,9 @@ function doHistory(){
 
 function doMillosLearningCenterFor(subject,times){
     $.ajax({
-           dataType: "json",
-           url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395') + '&callback=?',
+           url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395',
            success:function(input){
-        var text = input.contents;
+        var text = input;
         var strings = text.split(new RegExp("(january|february|march|april|may|june|july|august|september|october|november|december)","i"));
         if(strings.length > 2)
               text = strings[2];
@@ -60,10 +59,9 @@ function doMillosLearningCenterFor(subject,times){
 
 function doSpanish(times){
     $.ajax({
-           dataType: "json",
-          url:'http://anyorigin.com/dev/get?url=' + encodeURIComponent('http://www2.newton.k12.ma.us/~courtney_fournier/?OpenItemURL=S08BD3AB2') + '&callback=?',
+    	   url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~courtney_fournier/?OpenItemURL=S08BD3AB2',
            success:function(input){
-              var text = input.contents;
+              var text = input;
               var strings = text.split(new RegExp("(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)","i"));
               if(strings.length > 1)
                 text = strings[strings.length-1];
