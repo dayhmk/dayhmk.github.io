@@ -29,8 +29,9 @@ function doZappdragonsFor(subject){
               }
               
               strings = string.split(new RegExp("</p>", "i"));
+              string = "";
               for(var i = 0; i<strings.length-1; i++){
-                string = strings[i]+"</p>";
+                string = string+strings[i]+"</p>";
               }
               $("#"+subject+"-progress").remove();
               return editText(string.trim());
