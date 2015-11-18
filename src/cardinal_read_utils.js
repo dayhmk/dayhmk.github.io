@@ -41,7 +41,7 @@ function doZappdragonsFor(subject){
       })
 }
 
-function doMath(times){
+function doMath(){
     $.ajax({
            url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~sarah_nitsche/?OpenItemURL=S04B9F0E6',
            success:function(input){
@@ -62,15 +62,11 @@ function doMath(times){
         
     },
     error:function(jqXHR,textStatus,errorThrown){
-           if(textStatus != null && textStatus == "timeout" && times < 3){
-                doMath(times+1);
-                return;
-           }
            error(jqXHR,textStatus,errorThrown);
     }});
 }
 
-function doSpanish(times){
+function doSpanish(){
     $.ajax({
            url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~cassandra_spittel/?OpenItemURL=S0B3E6873',
            success:function(input){
@@ -145,10 +141,6 @@ function doSpanish(times){
               
     },
     error:function(jqXHR,textStatus,errorThrown){
-           if(textStatus != null && textStatus == "timeout" && times < 3){
-                doSpanish(times+1);
-                return;
-           }
            error(jqXHR,textStatus,errorThrown);
     }});
 }

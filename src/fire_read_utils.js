@@ -14,7 +14,7 @@ function doHistory(){
       })
 }
 
-function doMillosLearningCenterFor(subject,times){
+function doMillosLearningCenterFor(subject){
     $.ajax({
            url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~millos/?OpenItemURL=S080F3395',
            success:function(input){
@@ -49,15 +49,11 @@ function doMillosLearningCenterFor(subject,times){
         document.getElementById(subject+"-feed").innerHTML = editText(text.trim());
         
     },error:function(jqXHR,textStatus,errorThrown){
-        if(textStatus != null && textStatus == "timeout" && times < 3){
-           doMillosLearningCenterFor(subject,times+1);
-           return;
-        }
         error(jqXHR,textStatus,errorThrown);
     }});
 }
 
-function doSpanish(times){
+function doSpanish(){
     $.ajax({
     	   url:'https://dayhmkproxy.herokuapp.com/http://www2.newton.k12.ma.us/~courtney_fournier/?OpenItemURL=S08BD3AB2',
            success:function(input){
@@ -79,10 +75,6 @@ function doSpanish(times){
               document.getElementById("spanish-homework").innerHTML = editText(text.trim());
               
         },error:function(jqXHR,textStatus,errorThrown){
-            if(textStatus != null && textStatus == "timeout" && times < 3){
-                doSpanish(times+1);
-                return;
-            }
             error(jqXHR,textStatus,errorThrown);
         }});
 }
