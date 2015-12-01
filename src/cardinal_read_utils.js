@@ -17,8 +17,13 @@ function doZappdragonsFor(subject){
               }
               strings = string.split(new RegExp("(english|history|math|science)", "i"));
               string = strings[0];
+              string = string.trim();
               
-              strings = string.split(":");
+              if(string.indexOf(":") != -1){
+              	string = string.substr(string.indexOf(":")+1);
+              }
+              
+              /*strings = string.split(":");
               if(strings.length > 1){
               	string = "";
                 for(var i = 1; i<strings.length; i++){
@@ -30,8 +35,11 @@ function doZappdragonsFor(subject){
               
               strings = string.split(new RegExp("</p>", "i"));
               string = "";
-              for(var i = 0; i<strings.length-1; i++){
+              for(var i = 0; i<strings.length; i++){
                 string = string+strings[i]+"</p>";
+              }*/
+              if(string.indexOf('<a rel="nofollow"') != -1){
+              	string = string.substr(0,string.indexOf('<a rel="nofollow"'));
               }
               $("#"+subject+"-progress").remove();
               return editText(string.trim());
