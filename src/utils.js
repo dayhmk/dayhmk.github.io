@@ -21,3 +21,15 @@ function error(jqXHR,textStatus,errorThrown){
     }
     $("#msg").append(error);
 }
+
+function setupCheckboxEvents(){
+	$(document).ready(function(){
+    	$("input").change(function(){
+			if($(this).prop("checked")){
+				$(this).parent().parent().children(".panel-body").hide();
+			}else{
+				$(this).parent().parent().children(".panel-body").show();
+			}
+    	});
+	});
+}
