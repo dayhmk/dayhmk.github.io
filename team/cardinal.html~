@@ -3,7 +3,7 @@
 <html>
   
   <head>
-    <title>Phoenix Homework</title>
+    <title>Cardinal Homework</title>
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
@@ -39,8 +39,13 @@
     </style>
     <script>
     	$(document).ready(function() {
-    		setup("Phoenix");
-		});
+    		setup("Cardinal", {
+			'english-text':"zappdragons", 'english-link':"https://zappdragons.wordpress.com",
+			history-text:"zappdragons", history-link:"https://zappdragons.wordpress.com",
+			science-text:"zappdragons", science-link:"https://zappdragons.wordpress.com",
+			math-text:"Teacher Website", math-link:"http://www2.newton.k12.ma.us/~sarah_nitsche?OpenItemURL=S04B9F0E6",
+			spanish-text:"Teacher Website", spanish-link:"http://www2.newton.k12.ma.us/~cassandra_spittel/?OpenItemURL=S0B3E6873"});
+	});
     </script>
   </head>
   

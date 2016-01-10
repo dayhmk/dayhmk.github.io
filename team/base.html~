@@ -1,0 +1,99 @@
+<div class="container">
+  <h3 class="page-header" id="title"></h3>
+  <div class="btn-group">
+	  <a href="/index.html" class="btn btn-primary">&lt; Home</a>
+	  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Quicklinks</a>
+	  <ul class="dropdown-menu">
+		  <li><a href="https://www.newton.k12.ma.us/day" target="_blank">Day Website</a></li>
+		  <li><a href="https://drive.google.com/a/newton.k12.ma.us" target="_blank">Google Docs</a></li>
+		  <li><a href="https://schoology.com/login/ldap?&school=105120621" target="_blank">Schoology</a></li>
+		  <li><a href="https://app.middleburyinteractive.com" target="_blank">Middlebury Interactive</a></li>
+		  <li><a href="https://quizlet.com/" target="_blank">Quizlet</a></li>
+	  </ul>
+  </div><br><br>
+  <div class="row">
+	<div class="col-sm-6">
+	  <div class="panel panel-danger">
+		<div class="panel-heading">
+		  <h3 class="panel-title" style="display:inline;">English</h3>
+		  <input type="checkbox" style="float: right">
+		</div>
+		<div class="panel-body">
+			<div class="progress progress-striped active" id="english-progress">
+				<div class="progress-bar" style="width: 100%"></div>
+			</div>
+			<div id="english-homework">
+			</div>
+		</div>
+		<div class="panel-footer">
+		  Source: <a id="english-link"></a>
+		</div>
+	  </div>
+	  <div class="panel panel-primary">
+		  <div class="panel-heading">
+			  <h3 class="panel-title" style="display:inline;">Math</h3>
+			  <input type="checkbox" style="float: right">
+		  </div>
+		  <div class="panel-body">
+			  <div class="progress progress-striped active" id="math-progress">
+				  <div class="progress-bar" style="width: 100%"></div>
+			  </div>
+			  <div id="math-homework">
+			  </div>
+		  </div>
+		  <div class="panel-footer">
+			  Source: <a id="math-link"></a>
+		  </div>
+	  </div>
+	  <div class="panel panel-info">
+		  <div class="panel-heading">
+			  <h3 class="panel-title" style="display:inline;">Spanish</h3>
+			  <input type="checkbox" style="float: right">
+		  </div>
+		  <div class="panel-body">
+			  <div class="progress progress-striped active" id="spanish-progress">
+				  <div class="progress-bar" style="width: 100%"></div>
+			  </div>
+			  <div id="spanish-homework">
+			  </div>
+		  </div>
+		  <div class="panel-footer">
+			  Source: <a id="spanish-link"></a>
+		  </div>
+	  </div>
+	</div>
+	<div class="col-sm-6">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title" style="display:inline;">History</h3>
+				<input type="checkbox" align="right" style="float: right">
+			</div>
+			<div class="panel-body">
+				<div class="progress progress-striped active" id="history-progress">
+					<div class="progress-bar" style="width: 100%"></div>
+				</div>
+				<div id="history-homework">
+				</div>
+			</div>
+			<div class="panel-footer">
+				Source: <a id="history-link"></a>
+			</div>
+		</div>
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+				<h3 class="panel-title" style="display:inline;">Science</h3>
+				<input type="checkbox" style="float: right">
+			</div>
+			<div class="panel-body">
+				<div class="progress progress-striped active" id="science-progress">
+					<div class="progress-bar" style="width: 100%"></div>
+				</div>
+				<div id="science-homework">
+				</div>
+			</div>
+			<div class="panel-footer">
+				Source: <a id="science-link"></a>
+			</div>
+		</div>
+  </div>
+</div>

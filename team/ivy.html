@@ -5,11 +5,11 @@
   <head>
     <title>Ivy Homework</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="apple-touch-icon" href="/favicon.ico">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="../src/utils.js"></script>
     <style type="text/css">
       body {
         padding-top: 40px;
@@ -17,7 +17,7 @@
         background-color: #eee;
       }
       .container {
-        max-width: 330px;
+        max-width: 530px;
         padding: 15px;
         margin: 0 auto;
       }
@@ -37,23 +37,14 @@
         z-index: 2;
       }
     </style>
+    <script>
+    	$(document).ready(function() {
+    		setup("Ivy");
+		});
+    </script>
   </head>
   
-  <body>
-    <div class="container">
-      <h3 class="page-header">Ivy Homework</h3>
-      <div class="btn-group">
-          <a href="/index.html" class="btn btn-primary">&lt; Home</a>
-          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Quicklinks</a>
-          <ul class="dropdown-menu">
-              <li><a href="//www.newton.k12.ma.us/day" target="_blank">Day Website</a></li>
-              <li><a href="//drive.google.com/a/newton.k12.ma.us" target="_blank">Google Docs</a></li>
-              <li><a href="//schoology.newton.k12.ma.us/login/ldap?&school=105120621" target="_blank">Schoology</a></li>
-              <li><a href="//app.middleburyinteractive.com" target="_blank">Middlebury Interactive</a></li>
-          </ul>
-      </div><br><br>
-    </div>
-    <!-- /container -->
+  <body id="body">
   </body>
-
 </html>
+

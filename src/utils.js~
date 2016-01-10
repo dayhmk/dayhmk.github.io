@@ -1,4 +1,4 @@
-var url = "https://dayhmkproxy.herokuapp.com/";
+var url = "http://localhost:8080/";
 
 function editText(text){
     var out = text.replace(new RegExp("quizlet","gi"),'<a href="https://quizlet.com/">Quizlet</a>');
