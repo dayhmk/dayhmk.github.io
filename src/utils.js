@@ -20,11 +20,17 @@ function setup(team, links){
 		readHomework(team, "math");
 		readHomework(team, "science");
 		readHomework(team, "spanish");
+		readHomework(team, "french");
+		readHomework(team, "italian");
+		readHomework(team, "chinese");
 		setLink("english", links);
 		setLink("history", links);
 		setLink("math", links);
 		setLink("science", links);
 		setLink("spanish", links);
+		setLink("french", links);
+		setLink("italian", links);
+		setLink("chinese", links);
 	});
 }
 
