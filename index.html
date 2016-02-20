@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+      if (window.location.protocol != "https:" && window.location.protocol != "file:"){
+          window.location.href = "https:"+window.location.href.substring(window.location.protocol.length);
+      }
+    </script>
     <style type="text/css">
       body {
         padding-top: 40px;
