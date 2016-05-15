@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/";
+var url = "https://dayhmkproxy.herokuapp.com/";
 
 // Force HTTPS
 if (window.location.protocol != "https:" && window.location.protocol != "file:"){
