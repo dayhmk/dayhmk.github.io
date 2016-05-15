@@ -17,7 +17,6 @@ function setup(team, b){setup(team);}
 
 function setup(team){
 	$('#body').load("base.html", function(){
-		setupCheckboxEvents();
 		$('#title').html(team+" Homework");
 		
 		readHomework(team, "english");
@@ -43,17 +42,27 @@ function readHomework(team, subject){
 		url:url+team.toLowerCase()+"/"+subject+".php",
 		success: function(text){
 			var data = $.parseJSON(text);
-			$('#'+subject+'-homework').html(data.hw);
+			// Edit the homework to add links to useful sites, then add it to the div
+			$('#'+subject+'-homework').html(editText(data.hw));
 
+			// Checkbox UI
 			var parent = $('#'+subject+'-progress').parent();
 			$('#'+subject+'-progress').remove();
 			parent.append('<input style="margin-left: auto;" type="checkbox">');
 			parent.children(".checkbox").show("fast");
 			parent.children().change(function(){
 				if($(this).prop("checked")){
-					$(this).parent().parent().children(".panel-body").hide();
+					$(this).parent().parent().children(".panel-footer").hide("fast", function() {
+						$(this).parent().parent().children(".panel-body").hide("fast");
+						// Remove checkbox focus. Keeps it from turning blue after being pressed
+						$(this).blur();
+					});
 				}else{
-					$(this).parent().parent().children(".panel-body").show();
+					$(this).parent().parent().children(".panel-footer").show("fast", function() {
+						$(this).parent().parent().children(".panel-body").show("fast");
+						// Remove checkbox focus. Keeps it from turning blue after being pressed
+						$(this).blur();
+					});
 				}
     			});
 	
@@ -80,16 +89,4 @@ function readHomework(team, subject){
 				parent.children(".label-danger").show("fast");
 			});
 	}});
-}
-
-function setupCheckboxEvents(){
-	$(document).ready(function(){
-    	$("input").change(function(){
-			if($(this).prop("checked")){
-				$(this).parent().parent().children(".panel-body").hide("fast");
-			}else{
-				$(this).parent().parent().children(".panel-body").show("fast");
-			}
-    		});
-	});
 }
