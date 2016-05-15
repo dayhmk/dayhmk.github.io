@@ -42,7 +42,7 @@ function readHomework(team, subject){
 		url:url+team.toLowerCase()+"/"+subject+".php",
 		success: function(text){
 			var data = $.parseJSON(text);
-			// Edit the homework to add links to useful sites, then add it to the div
+			// Edit the homework to add links to useful sites, then add it to the divt
 			$('#'+subject+'-homework').html(editText(data.hw));
 
 			// Checkbox UI
@@ -52,14 +52,16 @@ function readHomework(team, subject){
 			parent.children(".checkbox").show("fast");
 			parent.children().change(function(){
 				if($(this).prop("checked")){
+					var div = $(this).parent().parent().children(".panel-body");
 					$(this).parent().parent().children(".panel-footer").hide("fast", function() {
-						$(this).parent().parent().children(".panel-body").hide("fast");
+						div.hide("fast");
 						// Remove checkbox focus. Keeps it from turning blue after being pressed
 						$(this).blur();
 					});
 				}else{
+					var div = $(this).parent().parent().children(".panel-body");
 					$(this).parent().parent().children(".panel-footer").show("fast", function() {
-						$(this).parent().parent().children(".panel-body").show("fast");
+						div.show("fast");
 						// Remove checkbox focus. Keeps it from turning blue after being pressed
 						$(this).blur();
 					});
