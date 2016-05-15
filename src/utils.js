@@ -1,4 +1,4 @@
-var url = "https://dayhmkproxy.herokuapp.com/";
+var url = "http://localhost:8080/";
 
 // Force HTTPS
 if (window.location.protocol != "https:" && window.location.protocol != "file:"){
@@ -13,9 +13,9 @@ function editText(text){
     return out;
 }
 
-function setup(team){setup(team,{});}
+function setup(team, b){setup(team);}
 
-function setup(team, links){
+function setup(team){
 	$('#body').load("base.html", function(){
 		setupCheckboxEvents();
 		$('#title').html(team+" Homework");
@@ -28,14 +28,6 @@ function setup(team, links){
 		readHomework(team, "french");
 		readHomework(team, "italian");
 		readHomework(team, "chinese");
-		setLink("english", links);
-		setLink("history", links);
-		setLink("math", links);
-		setLink("science", links);
-		setLink("spanish", links);
-		setLink("french", links);
-		setLink("italian", links);
-		setLink("chinese", links);
 	});
 }
 
@@ -47,29 +39,57 @@ function setLink(name, links){
 }
 
 function readHomework(team, subject){
-	$('#'+subject+'-homework').load(url+team.toLowerCase()+"/"+subject+".php", 
-		function(response, status, xhr){
+	$.ajax({
+		url:url+team.toLowerCase()+"/"+subject+".php",
+		success: function(text){
+			var data = $.parseJSON(text);
+			$('#'+subject+'-homework').html(data.hw);
+
+			var parent = $('#'+subject+'-progress').parent();
 			$('#'+subject+'-progress').remove();
-			if(status == "error"){
-				if(xhr.status == 404){
-					$('#'+subject+'-homework').html(
-					'<p class="text-warning">Coming Soon!</p>');
+			parent.append('<input style="margin-left: auto;" type="checkbox">');
+			parent.children(".checkbox").show("fast");
+			parent.children().change(function(){
+				if($(this).prop("checked")){
+					$(this).parent().parent().children(".panel-body").hide();
 				}else{
-					$('#'+subject+'-homework').html(
-					'<p class="text-danger">Uh-oh! Something went wrong!</p>');
+					$(this).parent().parent().children(".panel-body").show();
 				}
-			}
-		});
+    			});
+	
+			try{
+	    			$('#'+subject+'-link').text(data.name);
+	    			$('#'+subject+'-link').attr("href", data.url);
+			}catch(ex){}
+			$('#'+subject+'-homework').show("fast", function() {
+    				$('#'+subject+'-link').parent().show("fast");
+ 			 });
+		},
+  		statusCode: {
+   			404: function() {
+				var parent = $('#'+subject+'-progress').parent();
+				$('#'+subject+'-progress').remove();
+				parent.append('<span style="margin-left: auto;" class="label label-caution">Coming Soon!</span>');
+				parent.children(".label-caution").show("fast");
+    			}
+		},error: function(error) {
+			$('#'+subject+'-progress').hide("fast", function() {
+				var parent = $('#'+subject+'-progress').parent();
+				$('#'+subject+'-progress').remove();
+				parent.append('<span style="margin-left: auto;" class="label label-danger">Uh-Oh! Error!</span>');
+				parent.children(".label-danger").show("fast");
+			});
+	}});
 }
 
 function setupCheckboxEvents(){
 	$(document).ready(function(){
     	$("input").change(function(){
 			if($(this).prop("checked")){
-				$(this).parent().parent().children(".panel-body").hide();
+				$(this).parent().parent().children(".panel-body").hide("fast");
 			}else{
-				$(this).parent().parent().children(".panel-body").show();
+				$(this).parent().parent().children(".panel-body").show("fast");
 			}
-    	});
+    		});
 	});
 }
