@@ -52,18 +52,18 @@ function readHomework(team, subject){
 			parent.children(".checkbox").show("fast");
 			parent.children().change(function(){
 				if($(this).prop("checked")){
-					var div = $(this).parent().parent().children(".panel-body");
+					var checkbox = $(this);
 					$(this).parent().parent().children(".panel-footer").hide("fast", function() {
-						div.hide("fast");
+						checkbox.parent().parent().children(".panel-body").hide("fast");
 						// Remove checkbox focus. Keeps it from turning blue after being pressed
-						$(this).blur();
+						checkbox.blur();
 					});
 				}else{
-					var div = $(this).parent().parent().children(".panel-body");
+					var checkbox = $(this);
 					$(this).parent().parent().children(".panel-footer").show("fast", function() {
-						div.show("fast");
+						checkbox.parent().parent().children(".panel-body").show("fast");
 						// Remove checkbox focus. Keeps it from turning blue after being pressed
-						$(this).blur();
+						checkbox.blur();
 					});
 				}
     			});
