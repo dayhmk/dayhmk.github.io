@@ -69,8 +69,8 @@ function readHomework(team, subject){
    			404: function() {
 				var parent = $('#'+subject+'-progress').parent();
 				$('#'+subject+'-progress').remove();
-				parent.append('<span style="margin-left: auto;" class="label label-caution">Coming Soon!</span>');
-				parent.children(".label-caution").show("fast");
+				parent.append('<span style="margin-left: auto;" class="label label-warning">Coming Soon!</span>');
+				parent.children(".label-warning").show("fast");
     			}
 		},error: function(error) {
 			$('#'+subject+'-progress').hide("fast", function() {
