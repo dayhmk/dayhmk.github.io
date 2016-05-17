@@ -53,17 +53,17 @@ function readHomework(team, subject){
 			parent.children().change(function(){
 				if($(this).prop("checked")){
 					var checkbox = $(this);
+					// Remove checkbox focus. Keeps it from turning blue after being pressed
+					checkbox.blur();
 					$(this).parent().parent().children(".panel-footer").hide("fast", function() {
 						checkbox.parent().parent().children(".panel-body").hide("fast");
-						// Remove checkbox focus. Keeps it from turning blue after being pressed
-						checkbox.blur();
 					});
 				}else{
 					var checkbox = $(this);
+					// Remove checkbox focus. Keeps it from turning blue after being pressed
+					checkbox.blur();
 					$(this).parent().parent().children(".panel-footer").show("fast", function() {
 						checkbox.parent().parent().children(".panel-body").show("fast");
-						// Remove checkbox focus. Keeps it from turning blue after being pressed
-						checkbox.blur();
 					});
 				}
     			});
